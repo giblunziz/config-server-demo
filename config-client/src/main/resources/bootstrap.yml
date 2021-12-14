@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: test-client
+  cloud:
+    config:
+      uri: http://localhost:8888
+#      fail-fast: true
+  profiles:
+    active: dev, adv, LM, FR, LMFR
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh, health
+
+
