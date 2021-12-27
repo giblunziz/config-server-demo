@@ -1,5 +1,6 @@
 package com.example.configclient.endpoint;
 
+import com.example.configclient.annotation.AdvController;
 import com.example.configclient.config.BusinessUnitConfig;
 import com.example.configclient.config.WelcomeConfig;
 import lombok.RequiredArgsConstructor;
@@ -10,11 +11,10 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.event.EventListener;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
-@RestController
+@AdvController
 @RequiredArgsConstructor
 @Slf4j
 @RefreshScope
@@ -25,17 +25,22 @@ public class WelcomeEndpoint {
     @Value("${spring.data.mongodb.uri:UNSET}")
     private String mongoDbUri;
 
+    @Value("${common.message:UNSET}")
+    private String commonMessage;
+
     @GetMapping(value = "/")
     public ResponseEntity hello() {
+
         return ResponseEntity.ok(Map.of(
                 "welcome", welcomeConfig,
                 "business-unit", businessUnitConfig,
-                "mongodb-uri", mongoDbUri
+                "mongodb-uri", mongoDbUri,
+                "commons",commonMessage
         ));
     }
 
     @EventListener
     public void onApplicationEvent(WebServerInitializedEvent event) {
-        log.info("http://localhost:" + event.getWebServer().getPort() + "/");
+        log.info("server http://localhost:" + event.getWebServer().getPort() + "/ is up and ready");
     }
 }

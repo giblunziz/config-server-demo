@@ -6,7 +6,6 @@ import org.springframework.boot.actuate.health.HealthComponent;
 import org.springframework.boot.actuate.health.HealthEndpoint;
 import org.springframework.cloud.endpoint.RefreshEndpoint;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 @Configuration
@@ -24,5 +23,4 @@ public class RefreshConfig {
         HealthComponent result = healthEndpoint.health();
         log.info(result.toString());
     }
-
 }

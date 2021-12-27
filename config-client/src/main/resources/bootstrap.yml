@@ -3,10 +3,13 @@ spring:
     name: test-client
   cloud:
     config:
-      uri: http://localhost:8888
+      uri: sam-config-server-service:sam-prod
+      name: test-client
+#      name: test-client,commons
+#      label: release-1.0.0
 #      fail-fast: true
   profiles:
-    active: dev, adv, LM, FR, LMFR
+    active: adv,LM,ES,LMFR,prod
 management:
   endpoints:
     web:

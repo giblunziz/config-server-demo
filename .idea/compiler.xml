@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="sq-common" />
         <module name="config-server" />
         <module name="config-client" />
         <module name="config-server-demo" />
@@ -15,14 +16,16 @@
     <bytecodeTargetLevel>
       <module name="config-client" target="11" />
       <module name="config-server" target="11" />
-      <module name="config-server-demo" target="11" />
+      <module name="config-server-demo" target="1.5" />
+      <module name="sq-common" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="config-client" options="-parameters" />
       <module name="config-server" options="-parameters" />
-      <module name="config-server-demo" options="-parameters" />
+      <module name="config-server-demo" options="" />
+      <module name="sq-common" options="-parameters" />
     </option>
   </component>
 </project>

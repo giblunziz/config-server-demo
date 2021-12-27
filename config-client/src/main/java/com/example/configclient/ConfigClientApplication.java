@@ -1,6 +1,5 @@
 package com.example.configclient;
 
-import org.apache.logging.log4j.MarkerManager;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
